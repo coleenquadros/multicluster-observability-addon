@@ -46,7 +46,7 @@ type ConfigValue struct {
 type UIValues struct {
 	Enabled bool         `json:"enabled"`
 	ACM     ACMValues    `json:"acm,omitempty"`
-	Perses  PersesValues `json:"promes,omitempty"`
+	Perses  PersesValues `json:"perses,omitempty"`
 }
 
 type ACMValues struct {
