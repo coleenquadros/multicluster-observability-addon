@@ -3,6 +3,7 @@ package manifests
 import (
 	"encoding/json"
 
+	"github.com/stolostron/multicluster-observability-addon/internal/addon"
 	"github.com/stolostron/multicluster-observability-addon/internal/metrics/config"
 	"github.com/stolostron/multicluster-observability-addon/internal/metrics/handlers"
 	corev1 "k8s.io/api/core/v1"
@@ -45,7 +46,7 @@ type ConfigValue struct {
 type UIValues struct {
 	Enabled bool         `json:"enabled"`
 	ACM     ACMValues    `json:"acm,omitempty"`
-	Perses  PersesValues `json:"promes,omitempty"`
+	Perses  PersesValues `json:"perses,omitempty"`
 }
 
 type ACMValues struct {
@@ -235,4 +236,16 @@ func buildConfigMaps(configMaps []*corev1.ConfigMap) ([]ConfigValue, error) {
 		configMapsValue = append(configMapsValue, configMapValue)
 	}
 	return configMapsValue, nil
+}
+
+func EnableUI(opts addon.MetricsOptions, isHub bool) *UIValues {
+	if !opts.CollectionEnabled && !opts.UI.Enabled || !isHub {
+		return nil
+	}
+
+	return &UIValues{
+		Enabled: true,
+		ACM:     ACMValues{Enabled: opts.UI.ACM.Enabled},
+		Perses:  PersesValues{Enabled: opts.UI.Perses.Enabled},
+	}
 }
