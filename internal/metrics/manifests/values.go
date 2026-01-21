@@ -31,6 +31,7 @@ type MetricsValues struct {
 	AlertManagerEndpoint          string              `json:"alertManagerEndpoint,omitempty"`
 	Tolerations                   []corev1.Toleration `json:"tolerations"`
 	NodeSelector                  map[string]string   `json:"nodeSelector"`
+	ResourceReqs				  corev1.ResourceRequirements `json:"resourceReqs"`
 }
 
 type Collector struct {
@@ -78,6 +79,7 @@ func BuildValues(opts handlers.Options) (*MetricsValues, error) {
 		AlertManagerEndpoint: opts.AlertManagerEndpoint,
 		NodeSelector:         opts.NodeSelector,
 		Tolerations:          opts.Tolerations,
+		ResourceReqs:		  opts.ResourceReqs,
 	}
 
 	isOCPCluster := opts.IsOCPCluster()
