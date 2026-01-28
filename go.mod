@@ -105,7 +105,7 @@ require (
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/mwitkow/go-conntrack v0.0.0-20190716064945-2f068394615f // indirect
 	github.com/nexucis/lamenv v0.5.2 // indirect
-	github.com/openshift/api v0.0.0-20250704153732-ad766c4e6d8e // indirect
+	github.com/openshift/api v0.0.0-20250704153732-ad766c4e6d8e
 	github.com/perses/common v0.28.0 // indirect; indirect // indirect
 	github.com/perses/plugins/gaugechart v0.10.0 // indirect
 	github.com/perses/plugins/markdown v0.10.0 // indirect
@@ -165,7 +165,6 @@ require (
 	golang.org/x/sync v0.17.0 // indirect
 	golang.org/x/sys v0.36.0 // indirect
 	golang.org/x/term v0.35.0 // indirect
-	golang.org/x/text v0.29.0
 	golang.org/x/time v0.13.0 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.4.0 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20250929231259-57b25ae835d4 // indirect
